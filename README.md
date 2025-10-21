@@ -1,11 +1,17 @@
-# NovaCloud Login Demo
+# Hello Thymeleaf Spring Boot Demo
 
-Spring Boot + Thymeleaf demo that serves the NovaCloud branded login screen.
+This project is a minimal Spring Boot application that renders a "Hello, Thymeleaf!" message using a Thymeleaf template.
 
-## Running locally
+## Getting started
 
 ```bash
 mvn spring-boot:run
 ```
 
-Then open http://localhost:8080/login
+Then open <http://localhost:8080/> to see the rendered page.
+
+## Running tests
+
+```bash
+mvn test
+```
