@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sign in to NovaCloud</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/login.css" />
+  </head>
+  <body>
+    <main class="login-shell" aria-label="Sign in">
+      <div class="glow-ring" aria-hidden="true"></div>
+
+      <header class="header">
+        <div class="brand" aria-label="NovaCloud">
+          <span class="brand-badge">N</span>
+          NovaCloud Portal
+        </div>
+        <h1>Welcome back</h1>
+        <p>Access unified analytics, deployments, and support for your teams.</p>
+      </header>
+
+      <form>
+        <div class="field">
+          <label for="email">Work email</label>
+          <div class="input-wrapper">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="you@company.com"
+              autocomplete="email"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <div class="input-wrapper">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter your password"
+              autocomplete="current-password"
+              required
+            />
+            <button
+              type="button"
+              class="toggle-password"
+              aria-pressed="false"
+              aria-controls="password"
+            >
+              Show
+            </button>
+          </div>
+        </div>
+
+        <div class="form-footer">
+          <label class="remember">
+            <input type="checkbox" name="remember" id="remember" checked />
+            Remember me
+          </label>
+          <a href="#support" aria-label="Forgot password?">Forgot password?</a>
+        </div>
+
+        <button type="submit">Sign in</button>
+      </form>
+
+      <div class="login-meta">
+        Don’t have an account?
+        <a href="#">Request access</a>
+      </div>
+
+      <div class="trust-logos" aria-label="Trusted by">
+        <span>
+          <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+            <path
+              d="M12 2 3.5 6v6c0 5 3.5 9.74 8.5 10 5-.26 8.5-5 8.5-10V6L12 2zM8.25 17l3.75-8.5L15.75 17h-1.86l-.73-1.8H10.7l-.73 1.8H8.25z"
+            />
+          </svg>
+          Vertex
+        </span>
+        <span>
+          <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+            <path
+              d="M3 4h18l-9 16L3 4zm10 4h-2l1 6 1-6z"
+            />
+          </svg>
+          Radiant
+        </span>
+        <span>
+          <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+            <path
+              d="M4 4h16v6h-5l3 10h-4l-2-7-2 7H6l3-10H4V4z"
+            />
+          </svg>
+          SkyForge
+        </span>
+      </div>
+    </main>
+
+    <script>
+      const toggleButton = document.querySelector('.toggle-password');
+      const passwordInput = document.querySelector('#password');
+
+      toggleButton?.addEventListener('click', () => {
+        const shouldShow = passwordInput.type === 'password';
+        passwordInput.type = shouldShow ? 'text' : 'password';
+        toggleButton.textContent = shouldShow ? 'Hide' : 'Show';
+        toggleButton.setAttribute('aria-pressed', String(shouldShow));
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,262 @@
+:root {
+  color-scheme: light dark;
+  --primary: #3b82f6;
+  --primary-dark: #2563eb;
+  --surface: rgba(255, 255, 255, 0.9);
+  --surface-dark: rgba(15, 23, 42, 0.85);
+  --text: #0f172a;
+  --text-muted: #475569;
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0ea5e9, #6366f1 40%, #9333ea);
+  color: var(--text);
+}
+
+.login-shell {
+  position: relative;
+  width: min(420px, 90vw);
+  padding: 3.5rem 3rem 3rem;
+  border-radius: 28px;
+  background: var(--surface);
+  backdrop-filter: blur(22px);
+  box-shadow: 0 25px 80px -30px rgba(15, 23, 42, 0.55);
+  overflow: hidden;
+  color: inherit;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: white;
+  }
+
+  .login-shell {
+    background: var(--surface-dark);
+    box-shadow: 0 25px 70px -30px rgba(2, 6, 23, 0.9);
+  }
+}
+
+.glow-ring {
+  position: absolute;
+  inset: -50%;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.3), transparent 65%);
+  filter: blur(60px);
+  z-index: 0;
+}
+
+.header {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  row-gap: 0.5rem;
+  margin-bottom: 2.25rem;
+  text-align: center;
+}
+
+.header .brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.02em;
+}
+
+.brand-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--primary), #a855f7);
+  color: white;
+  font-size: 1.25rem;
+  box-shadow: 0 12px 25px -15px rgba(59, 130, 246, 0.75);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+}
+
+.header p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+form {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 1rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.35rem;
+}
+
+label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: none;
+  border-radius: 16px;
+  font-size: 1rem;
+  background: rgba(148, 163, 184, 0.12);
+  color: inherit;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  background: rgba(148, 163, 184, 0.2);
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+}
+
+.toggle-password {
+  position: absolute;
+  right: 0.85rem;
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.toggle-password:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+  border-radius: 999px;
+}
+
+.form-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--text-muted);
+}
+
+.remember input {
+  accent-color: var(--primary);
+  transform: scale(1.05);
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button[type="submit"] {
+  margin-top: 1.3rem;
+  border: none;
+  border-radius: 18px;
+  padding: 0.95rem;
+  font-size: 1rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button[type="submit"]:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 35px -20px rgba(37, 99, 235, 0.75);
+}
+
+button[type="submit"]:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 3px;
+}
+
+.login-meta {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.login-meta a {
+  font-weight: 700;
+}
+
+.trust-logos {
+  margin-top: 2.25rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.75rem;
+  opacity: 0.7;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+}
+
+.trust-logos span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.trust-logos svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+@media (max-width: 480px) {
+  .login-shell {
+    padding: 3rem 1.75rem 2.5rem;
+    border-radius: 24px;
+  }
+
+  .form-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .trust-logos {
+    flex-direction: column;
+    gap: 0.6rem;
+    text-align: center;
+  }
+}
